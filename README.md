@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -94,4 +94,18 @@ This is the place for you to write reflections:
 
     Rust restricts direct mutation of static variables via static functions, unlike Java, to avoid concurrency issues in multi-threaded applications. By default, static variables in Rust are immutable to ensure safe parallel execution. The `lazy_static` crate helps initialize variables lazily when they are first accessed, making them behave like singletons in this context. To allow controlled mutability, `RwLock<>` is used, which permits multiple threads to read simultaneously while ensuring that only one thread can modify the data at a time.
 
+---
+
 #### Reflection Subscriber-2
+
+1. *Have you explored things outside of the steps in the tutorial, for example: `src/lib.rs`? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.*
+
+    Yes, but only briefly. From what I understand, `src/lib.rs` serves as the main module of the project. This file contains crate and module imports, the `AppConfig` structure, and error handling logic.
+
+2. *Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?*
+
+    Yes, integrating additional subscribers remains straightforward due to the flexibility of the Observer pattern. Each instance of the Main app independently manages its own set of subscribers and handles notifications accordingly. If multiple instances of the Main app need to communicate changes to all subscribers, an inter-instance messaging system would be necessary. However, registering new subscribers across multiple app instances can still be efficiently managed by sending HTTP requests to the appropriate API endpoints for each instance.
+
+3. *Have you tried to make your own Tests, or enhance documentation on your **Postman collection**? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).*
+
+    Yes, I have. These features are incredibly beneficial. Writing tests allows us to validate that our code functions correctly, minimizing potential bugs. Improving documentation within the Postman Collection makes API usage more intuitive and helps confirm that responses align with expected data. I believe well-structured documentation should outline endpoints, required parameters, expected outputs, and error handling strategies. Postman’s "Overview" tab offers a great way to organize and present this information effectively.
